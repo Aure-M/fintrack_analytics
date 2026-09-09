@@ -1,0 +1,9 @@
+models:
+  - name: fct_transactions
+    description: "Table de faits pour les transactions"
+    columns:
+      - name: transaction_id
+        description: "Identifiant de la transaction"
+        data_tests:
+          - not_null
+          - unique

@@ -1,0 +1,72 @@
+models:
+  - name: stg_comptes
+    description: "Modèle de staging pour la table Comptes"
+    columns:
+      - name: compte_id
+        description: "Identifiant du compte"
+        data_tests:
+          - not_null
+          - unique
+      - name: nom_client
+        description: "Nom du client"
+      - name: email
+        description: "Adresse email du client"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_match_regex:
+              arguments:
+                regex: |
+                  ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
+      - name: type_compte
+        description: "Type de compte"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['courant', 'epargne', 'joint']
+      - name: date_ouverture
+        description: "Date d'ouverture du compte"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: cast('2000-01-01' as date)
+                max_value: "current_date"
+      - name: solde_initial
+        description: "Solde initial du compte"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+      - name: statut
+        description: "Statut du compte"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['actif', 'inactif', 'cloture']
+  - name: stg_categories
+    description: "Modèle de staging pour la table Categories"
+    columns:
+      - name: categorie_id
+        description: "Identifiant de la catégorie"
+        data_tests:
+          - not_null
+          - unique
+  - name: stg_transactions
+    description: "Modèle de staging pour la table Transactions"
+    columns:
+      - name: transaction_id
+        description: "Identifiant de la transaction"
+        data_tests:
+          - not_null
+          - unique
+      - name: compte_id
+        description: "Identifiant du compte"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_comptes')
+                field: compte_id

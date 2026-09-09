@@ -1,0 +1,609 @@
+==================== 2026-09-09T10:20:16.169351Z | 01a085ae-bb89-7c91-a643-06d14d784b12 ====================
+10:20:16.174557 [info ]: dbt-fusion 2.0.0-preview.218
+10:20:16.277150 [info ]: Loading packages.yml
+10:20:16.277298 [info ]: Installing packages
+10:20:16.289356 [info ]: Installing calogica/dbt_date
+10:20:16.294369 [info ]: Installing calogica/dbt_expectations
+10:20:16.964835 [info ]:  Installed calogica/dbt_date: 0.10.1
+10:20:17.093227 [info ]:  Installed calogica/dbt_expectations: 0.10.4
+10:20:17.103300 [info ]:  Installed 2 packages
+10:20:17.128124 [info ]: 
+==================== Execution Summary =====================
+Finished 'deps' successfully [958ms]
+==================== 2026-09-09T10:20:41.631087Z | 01a085af-1f13-75d0-95ee-02bcc035993d ====================
+10:20:41.632269 [info ]: dbt-fusion 2.0.0-preview.218
+10:20:41.635614 [info ]: Started loading project
+10:20:41.644705 [info ]: Loading ~/.dbt/profiles.yml
+10:20:41.719894 [info ]: Loading packages.yml
+10:20:41.721743 [debug]:    Started loading packages
+10:20:41.759740 [debug]:     Loaded [  0.04s] packages
+10:20:41.768126 [info ]: Finished loading project [  0.13s]
+10:20:41.777478 [info ]: Started parsing
+10:20:42.102330 [debug]: Finished parsing models/marts/_stg_models.yml [  0.01s]
+10:20:42.104340 [debug]: Finished parsing models/staging/_stg_models.yml [  0.00s]
+10:20:42.107593 [debug]: Finished parsing models/staging/_stg_sources.yml [  0.00s]
+10:20:42.134119 [debug]: Finished parsing models/intermediate/int_transactions_enrichies.sql [  0.01s]
+10:20:42.135736 [debug]: Finished parsing models/marts/dim_categories.sql [  0.00s]
+10:20:42.137321 [debug]: Finished parsing models/marts/dim_comptes.sql [  0.00s]
+10:20:42.139061 [debug]: Finished parsing models/marts/fct_transactions.sql [  0.00s]
+10:20:42.141112 [debug]: Finished parsing models/marts/mart_budget_vs_reel.sql [  0.00s]
+10:20:42.143071 [debug]: Finished parsing models/marts/mart_solde_mensuel.sql [  0.00s]
+10:20:42.145499 [debug]: Finished parsing models/staging/stg_budgets.sql [  0.00s]
+10:20:42.147317 [debug]: Finished parsing models/staging/stg_categories.sql [  0.00s]
+10:20:42.149620 [debug]: Finished parsing models/staging/stg_comptes.sql [  0.00s]
+10:20:42.151441 [debug]: Finished parsing models/staging/stg_transactions.sql [  0.00s]
+10:20:42.197480 [debug]: Finished parsing tests/assert_solde_mensuel_positif.sql [  0.00s]
+10:20:42.200630 [debug]: Finished parsing target/generic_tests/not_null_fct_transactions_transaction_id.sql [  0.00s]
+10:20:42.202740 [debug]: Finished parsing target/generic_tests/unique_fct_transactions_transaction_id.sql [  0.00s]
+10:20:42.205141 [debug]: Finished parsing target/generic_tests/not_null_stg_categories_categorie_id.sql [  0.00s]
+10:20:42.207189 [debug]: Finished parsing target/generic_tests/unique_stg_categories_categorie_id.sql [  0.00s]
+10:20:42.209323 [debug]: Finished parsing target/generic_tests/not_null_stg_comptes_compte_id.sql [  0.00s]
+10:20:42.211892 [debug]: Finished parsing target/generic_tests/unique_stg_comptes_compte_id.sql [  0.00s]
+10:20:42.214049 [debug]: Finished parsing target/generic_tests/not_null_stg_comptes_date_ouverture.sql [  0.00s]
+10:20:42.217968 [debug]: Finished parsing target/generic_tests/dbt_expectations_expect_column_f42c2e5994552ee168997547e3338bdb.sql [  0.00s]
+10:20:42.220671 [debug]: Finished parsing target/generic_tests/not_null_stg_comptes_email.sql [  0.00s]
+10:20:42.223918 [debug]: Finished parsing target/generic_tests/dbt_expectations_expect_column_9fe145ac115fdf6dc32d72b6eed0bf2b.sql [  0.00s]
+10:20:42.226288 [debug]: Finished parsing target/generic_tests/not_null_stg_comptes_solde_initial.sql [  0.00s]
+10:20:42.229499 [debug]: Finished parsing target/generic_tests/dbt_expectations_expect_column_382d20963cce061bc7925b7503a65fb7.sql [  0.00s]
+10:20:42.231879 [debug]: Finished parsing target/generic_tests/not_null_stg_comptes_statut.sql [  0.00s]
+10:20:42.234211 [debug]: Finished parsing target/generic_tests/accepted_values_stg_comptes_statut__actif__inactif__cloture.sql [  0.00s]
+10:20:42.236525 [debug]: Finished parsing target/generic_tests/not_null_stg_comptes_type_compte.sql [  0.00s]
+10:20:42.238845 [debug]: Finished parsing target/generic_tests/accepted_values_stg_comptes_f1faed08d9c87f7483d3a3bcc8a81daa.sql [  0.00s]
+10:20:42.240837 [debug]: Finished parsing target/generic_tests/not_null_stg_transactions_compte_id.sql [  0.00s]
+10:20:42.242452 [debug]: Finished parsing target/generic_tests/relationships_stg_transactions_985ebbdbfd283785f0e58047e4f6b5ed.sql [  0.00s]
+10:20:42.244232 [debug]: Finished parsing target/generic_tests/not_null_stg_transactions_transaction_id.sql [  0.00s]
+10:20:42.245812 [debug]: Finished parsing target/generic_tests/unique_stg_transactions_transaction_id.sql [  0.00s]
+10:20:42.940941 [info ]: Finished parsing [  1.16s]
+10:20:43.113410 [info ]: Started scheduling
+10:20:43.118183 [info ]: Finished scheduling [  0.00s]
+10:20:43.126509 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "FINTRACK_DB", schema: "RAW", table: "RAW_CATEGORIES" }) and interval: None
+10:20:43.126854 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "FINTRACK_DB", schema: "RAW", table: "RAW_BUDGETS" }) and interval: None
+10:20:43.126887 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "FINTRACK_DB", schema: "RAW", table: "RAW_COMPTES" }) and interval: None
+10:20:43.126905 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "FINTRACK_DB", schema: "RAW", table: "RAW_TRANSACTIONS" }) and interval: None
+10:20:43.292296 [info ]: Started building task graph
+10:20:43.299230 [info ]: Finished building task graph [  0.01s]
+10:20:43.357973 [debug]: Snowflake driver resolved: snowflake 0.21.0.dev+dbt0.21.17
+10:20:45.803871 [debug]: create_debug_span(...).entered() took 630.875µs
+10:20:45.974559 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 170.349314ms
+10:20:45.974618 [debug]: reader.schema() took 901ns
+10:20:45.977433 [debug]: batch-consume loop (for res in reader) took 2.790983ms
+10:20:45.981130 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 177.193854ms
+10:20:45.983062 [debug]: concat_batches + normalize_result_column_names took 1.870038ms
+10:20:45.983516 [debug]: record_current_span_status_from_attrs took 405.451µs
+10:20:45.983572 [debug]: Query executed on node unknown:
+show terse schemas in database FINTRACK_DB
+    limit 10000
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:45.983635 [debug]: drop(query_span_guard) (span exit/export) took 68.833µs
+10:20:45.990121 [info ]: Started rendering (10 nodes)
+10:20:45.990359 [info ]: Started model STAGING.stg_budgets
+10:20:45.990638 [debug]: Started rendering model STAGING.stg_budgets
+10:20:45.991112 [info ]: Started model STAGING.stg_transactions
+10:20:45.991165 [debug]: Started rendering model STAGING.stg_transactions
+10:20:45.991247 [info ]: Started model STAGING.stg_comptes
+10:20:45.991307 [debug]: Started rendering model STAGING.stg_comptes
+10:20:45.991371 [info ]: Started model STAGING.stg_categories
+10:20:45.991403 [debug]: Started rendering model STAGING.stg_categories
+10:20:45.997945 [debug]: Compiled SQL for node model.fintrack_analytics.stg_budgets at target/compiled/fintrack_analytics/models/staging/stg_budgets.sql
+10:20:45.997945 [debug]: Compiled SQL for node model.fintrack_analytics.stg_categories at target/compiled/fintrack_analytics/models/staging/stg_categories.sql
+10:20:45.997957 [debug]: Compiled SQL for node model.fintrack_analytics.stg_transactions at target/compiled/fintrack_analytics/models/staging/stg_transactions.sql
+10:20:45.997945 [debug]: Compiled SQL for node model.fintrack_analytics.stg_comptes at target/compiled/fintrack_analytics/models/staging/stg_comptes.sql
+10:20:45.998448 [debug]: Finished rendering [  0.01s] model STAGING.stg_transactions [success]
+10:20:45.999373 [info ]: Started analyzing (10 nodes)
+10:20:45.999518 [debug]: Started analyzing model STAGING.stg_transactions
+10:20:45.999665 [debug]: Finished rendering [  0.01s] model STAGING.stg_budgets [success]
+10:20:45.999860 [debug]: Started analyzing model STAGING.stg_budgets
+10:20:45.999950 [debug]: Finished rendering [  0.01s] model STAGING.stg_comptes [success]
+10:20:46.000110 [debug]: Started analyzing model STAGING.stg_comptes
+10:20:46.000204 [debug]: Finished rendering [  0.01s] model STAGING.stg_categories [success]
+10:20:46.000349 [debug]: Started analyzing model STAGING.stg_categories
+10:20:46.095859 [debug]: Finished analyzing [  0.10s] model STAGING.stg_categories [success]
+10:20:46.096195 [info ]: Started running (10 nodes)
+10:20:46.096392 [info ]: Started running model STAGING.stg_categories
+10:20:46.096785 [debug]: Finished analyzing [  0.10s] model STAGING.stg_budgets [success]
+10:20:46.097115 [info ]: Started running model STAGING.stg_budgets
+10:20:46.103366 [debug]: Finished analyzing [  0.10s] model STAGING.stg_transactions [success]
+10:20:46.103666 [info ]: Started running model STAGING.stg_transactions
+10:20:46.103792 [debug]: Started connection limit wait
+10:20:46.106746 [debug]: Finished analyzing [  0.11s] model STAGING.stg_comptes [success]
+10:20:46.107052 [info ]: Started running model STAGING.stg_comptes
+10:20:46.107174 [debug]: Started connection limit wait
+10:20:46.124361 [debug]: create_debug_span(...).entered() took 84.232µs
+10:20:46.352861 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 228.17267ms
+10:20:46.352931 [debug]: reader.schema() took 955ns
+10:20:46.353197 [debug]: create_debug_span(...).entered() took 76.439µs
+10:20:46.361102 [debug]: batch-consume loop (for res in reader) took 8.122538ms
+10:20:46.366285 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 241.835338ms
+10:20:46.366497 [debug]: concat_batches + normalize_result_column_names took 126.056µs
+10:20:46.366574 [debug]: record_current_span_status_from_attrs took 10.51µs
+10:20:46.366610 [debug]: Query executed on node model.fintrack_analytics.stg_categories:
+SHOW OBJECTS IN SCHEMA "FINTRACK_DB"."STAGING" LIMIT 10000
+10:20:46.366701 [debug]: drop(query_span_guard) (span exit/export) took 98.248µs
+10:20:46.372984 [debug]: Writing runtime sql for node "model.fintrack_analytics.stg_categories"
+10:20:46.376212 [debug]: create_debug_span(...).entered() took 44.8µs
+10:20:46.454936 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 101.316897ms
+10:20:46.455008 [debug]: reader.schema() took 1.089µs
+10:20:46.459885 [debug]: batch-consume loop (for res in reader) took 4.644614ms
+10:20:46.464662 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 111.395511ms
+10:20:46.464866 [debug]: concat_batches + normalize_result_column_names took 130.122µs
+10:20:46.464910 [debug]: record_current_span_status_from_attrs took 8.246µs
+10:20:46.464939 [debug]: Query executed on node model.fintrack_analytics.stg_budgets:
+SHOW OBJECTS IN SCHEMA "FINTRACK_DB"."STAGING" LIMIT 10000
+10:20:46.465009 [debug]: drop(query_span_guard) (span exit/export) took 77.662µs
+10:20:46.472883 [debug]: Writing runtime sql for node "model.fintrack_analytics.stg_budgets"
+10:20:46.476486 [debug]: create_debug_span(...).entered() took 45.431µs
+10:20:46.758301 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 381.941513ms
+10:20:46.758362 [debug]: reader.schema() took 973ns
+10:20:46.765751 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 389.469387ms
+10:20:46.765877 [debug]: concat_batches + normalize_result_column_names took 51.355µs
+10:20:46.765908 [debug]: record_current_span_status_from_attrs took 8.034µs
+10:20:46.765938 [debug]: Query executed on node model.fintrack_analytics.stg_categories:
+create or replace   view FINTRACK_DB.STAGING.stg_categories
+  
+  
+  
+  
+  as (
+    with
+source as (
+    select * from fintrack_db.raw.raw_categories
+),
+
+categories as (
+    select
+        id as categorie_id,
+        TRIM(nom) as nom_categorie,
+        TRIM(type) as type_categorie,
+        TRIM(groupe) as groupe_categorie
+    from source
+)
+
+select * from categories
+  )
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.stg_categories", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:46.766053 [debug]: drop(query_span_guard) (span exit/export) took 125.594µs
+10:20:46.770007 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 293.333637ms
+10:20:46.770064 [debug]: reader.schema() took 970ns
+10:20:46.776590 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 299.999216ms
+10:20:46.776700 [debug]: concat_batches + normalize_result_column_names took 47.147µs
+10:20:46.776734 [debug]: record_current_span_status_from_attrs took 7.844µs
+10:20:46.776763 [debug]: Query executed on node model.fintrack_analytics.stg_budgets:
+create or replace   view FINTRACK_DB.STAGING.stg_budgets
+  
+  
+  
+  
+  as (
+    with
+source as (
+    select * from fintrack_db.raw.raw_budgets
+),
+
+budgets as (
+    select
+        id as budget_id,
+        compte_id,
+        CAST(mois as DATE) as mois,
+        categorie_id,
+        CAST(montant_prevu as DECIMAL(10, 2)) as montant_prevu
+    from source
+)
+
+select * from budgets
+  )
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.stg_budgets", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:46.776852 [debug]: drop(query_span_guard) (span exit/export) took 96.792µs
+10:20:46.783367 [debug]: Finished connection limit wait [  0.68s]
+10:20:46.783405 [debug]: Finished connection limit wait [  0.68s]
+10:20:46.783412 [info ]: Finished running [  0.69s] model STAGING.stg_categories [success]
+10:20:46.783729 [info ]:  Succeeded [  0.79s] model STAGING.stg_categories (view)
+10:20:46.784008 [info ]: Started model MARTS.dim_categories
+10:20:46.784065 [debug]: Started rendering model MARTS.dim_categories
+10:20:46.784181 [info ]: Finished running [  0.69s] model STAGING.stg_budgets [success]
+10:20:46.784286 [info ]:  Succeeded [  0.79s] model STAGING.stg_budgets (view)
+10:20:46.786447 [debug]: Compiled SQL for node model.fintrack_analytics.dim_categories at target/compiled/fintrack_analytics/models/marts/dim_categories.sql
+10:20:46.786763 [debug]: Finished rendering [  0.00s] model MARTS.dim_categories [success]
+10:20:46.786911 [debug]: Started analyzing model MARTS.dim_categories
+10:20:46.787503 [debug]: Finished analyzing [  0.00s] model MARTS.dim_categories [success]
+10:20:46.787687 [info ]: Started running model MARTS.dim_categories
+10:20:46.787792 [debug]: Started connection limit wait
+10:20:46.794261 [debug]: Writing runtime sql for node "model.fintrack_analytics.stg_transactions"
+10:20:46.797759 [debug]: create_debug_span(...).entered() took 74.891µs
+10:20:46.800169 [debug]: Writing runtime sql for node "model.fintrack_analytics.stg_comptes"
+10:20:46.804321 [debug]: create_debug_span(...).entered() took 69.012µs
+10:20:47.100383 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 295.83287ms
+10:20:47.100462 [debug]: reader.schema() took 1.085µs
+10:20:47.112705 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 308.278481ms
+10:20:47.112907 [debug]: concat_batches + normalize_result_column_names took 69.802µs
+10:20:47.112956 [debug]: record_current_span_status_from_attrs took 13.103µs
+10:20:47.112999 [debug]: Query executed on node model.fintrack_analytics.stg_comptes:
+create or replace   view FINTRACK_DB.STAGING.stg_comptes
+  
+  
+  
+  
+  as (
+    with
+source as (
+    select * from fintrack_db.raw.raw_comptes
+),
+
+comptes as (
+    select
+        id as compte_id,
+        nom_client,
+        TRIM(email) as email,
+        TRIM(type_compte) as type_compte,
+        CAST(date_ouverture AS DATE) as date_ouverture,
+        CAST(solde_initial AS DECIMAL(10, 2)) as solde_initial,
+        LOWER(statut) as statut
+    from source
+)
+
+select * from comptes
+  )
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.stg_comptes", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:47.113095 [debug]: drop(query_span_guard) (span exit/export) took 109.116µs
+10:20:47.120444 [debug]: Finished connection limit wait [  0.33s]
+10:20:47.120448 [info ]: Finished running [  0.34s] model STAGING.stg_comptes [success]
+10:20:47.120798 [info ]:  Succeeded [  0.45s] model STAGING.stg_comptes (view)
+10:20:47.121114 [info ]: Started model MARTS.dim_comptes
+10:20:47.121171 [debug]: Started rendering model MARTS.dim_comptes
+10:20:47.123623 [debug]: Compiled SQL for node model.fintrack_analytics.dim_comptes at target/compiled/fintrack_analytics/models/marts/dim_comptes.sql
+10:20:47.123968 [debug]: Finished rendering [  0.00s] model MARTS.dim_comptes [success]
+10:20:47.124143 [debug]: Started analyzing model MARTS.dim_comptes
+10:20:47.135294 [debug]: Finished analyzing [  0.01s] model MARTS.dim_comptes [success]
+10:20:47.135481 [info ]: Started running model MARTS.dim_comptes
+10:20:47.135631 [debug]: Started connection limit wait
+10:20:47.136372 [debug]: create_debug_span(...).entered() took 40.16µs
+10:20:47.201389 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 403.089052ms
+10:20:47.201477 [debug]: reader.schema() took 1.193µs
+10:20:47.212473 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 414.609096ms
+10:20:47.212663 [debug]: concat_batches + normalize_result_column_names took 69.256µs
+10:20:47.212702 [debug]: record_current_span_status_from_attrs took 10.355µs
+10:20:47.212755 [debug]: Query executed on node model.fintrack_analytics.stg_transactions:
+create or replace   view FINTRACK_DB.STAGING.stg_transactions
+  
+  
+  
+  
+  as (
+    with
+source as (
+    select * from fintrack_db.raw.raw_transactions
+),
+
+transactions as (
+    select
+        id as transaction_id,
+        compte_id,
+        CAST(date_transaction AS TIMESTAMP_NTZ) as date_transaction,
+        CAST(montant AS DECIMAL(10, 2)) as montant,
+        TRIM(type_operation) as type_operation,
+        TRIM(categorie_id) as categorie_id,
+        TRIM(statut) as statut,
+        description
+    from source
+)
+
+select * from transactions
+  )
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.stg_transactions", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:47.212869 [debug]: drop(query_span_guard) (span exit/export) took 126.518µs
+10:20:47.221650 [debug]: Finished connection limit wait [  0.09s]
+10:20:47.221686 [info ]: Finished running [  0.44s] model STAGING.stg_transactions [success]
+10:20:47.222067 [info ]:  Succeeded [  0.55s] model STAGING.stg_transactions (view)
+10:20:47.222850 [info ]: Started model PROD.int_transactions_enrichies
+10:20:47.222910 [debug]: Started rendering model PROD.int_transactions_enrichies
+10:20:47.225591 [debug]: Compiled SQL for node model.fintrack_analytics.int_transactions_enrichies at target/compiled/fintrack_analytics/models/intermediate/int_transactions_enrichies.sql
+10:20:47.226203 [debug]: Finished rendering [  0.00s] model PROD.int_transactions_enrichies [success]
+10:20:47.226486 [debug]: Started analyzing model PROD.int_transactions_enrichies
+10:20:47.227257 [debug]: create_debug_span(...).entered() took 39.828µs
+10:20:47.246806 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 110.202868ms
+10:20:47.246890 [debug]: reader.schema() took 1.12µs
+10:20:47.251289 [debug]: batch-consume loop (for res in reader) took 4.351798ms
+10:20:47.256298 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 119.840107ms
+10:20:47.256523 [debug]: concat_batches + normalize_result_column_names took 148.531µs
+10:20:47.256602 [debug]: record_current_span_status_from_attrs took 10.308µs
+10:20:47.256637 [debug]: Query executed on node model.fintrack_analytics.dim_categories:
+SHOW OBJECTS IN SCHEMA "FINTRACK_DB"."MARTS" LIMIT 10000
+10:20:47.256733 [debug]: drop(query_span_guard) (span exit/export) took 105.063µs
+10:20:47.263720 [debug]: Finished analyzing [  0.04s] model PROD.int_transactions_enrichies [success]
+10:20:47.263936 [info ]: Started running model PROD.int_transactions_enrichies
+10:20:47.264110 [debug]: Started connection limit wait
+10:20:47.269025 [debug]: Writing runtime sql for node "model.fintrack_analytics.dim_categories"
+10:20:47.273684 [debug]: create_debug_span(...).entered() took 230.277µs
+10:20:47.408434 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 180.99964ms
+10:20:47.408521 [debug]: reader.schema() took 1.174µs
+10:20:47.412507 [debug]: batch-consume loop (for res in reader) took 3.911077ms
+10:20:47.416984 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 189.645649ms
+10:20:47.417188 [debug]: concat_batches + normalize_result_column_names took 127.077µs
+10:20:47.417242 [debug]: record_current_span_status_from_attrs took 10.262µs
+10:20:47.417276 [debug]: Query executed on node model.fintrack_analytics.dim_comptes:
+SHOW OBJECTS IN SCHEMA "FINTRACK_DB"."MARTS" LIMIT 10000
+10:20:47.417376 [debug]: drop(query_span_guard) (span exit/export) took 107.433µs
+10:20:47.424042 [debug]: Writing runtime sql for node "model.fintrack_analytics.dim_comptes"
+10:20:47.426658 [debug]: create_debug_span(...).entered() took 36.445µs
+10:20:48.726831 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.300028086s
+10:20:48.726914 [debug]: reader.schema() took 1.115µs
+10:20:48.735705 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.461224438s
+10:20:48.735789 [debug]: reader.schema() took 1.077µs
+10:20:48.739401 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.312677063s
+10:20:48.739509 [debug]: concat_batches + normalize_result_column_names took 51.197µs
+10:20:48.739580 [debug]: record_current_span_status_from_attrs took 9.216µs
+10:20:48.739633 [debug]: Query executed on node model.fintrack_analytics.dim_comptes:
+create or replace transient  table FINTRACK_DB.MARTS.dim_comptes
+    
+    
+    
+    
+    as (with
+
+comptes as (
+    select * from FINTRACK_DB.STAGING.stg_comptes
+)
+
+select
+    compte_id,
+    nom_client,
+    email,
+    type_compte,
+    date_ouverture,
+    solde_initial,
+    statut,
+    DATEDIFF('day', date_ouverture, CURRENT_DATE) as anciennete
+from comptes
+    )
+
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.dim_comptes", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:48.739734 [debug]: drop(query_span_guard) (span exit/export) took 110.45µs
+10:20:48.747971 [debug]: Finished connection limit wait [  1.48s]
+10:20:48.747994 [info ]: Finished running [  1.53s] model MARTS.dim_comptes [success]
+10:20:48.748331 [info ]:  Succeeded [  1.54s] model MARTS.dim_comptes (table)
+10:20:48.748695 [info ]: Finished running [  0.00s] model PROD.int_transactions_enrichies [no-op]
+10:20:48.748824 [info ]:    Skipped [-------] model PROD.int_transactions_enrichies (ephemeral)
+10:20:48.748929 [info ]: Started model MARTS.fct_transactions
+10:20:48.748984 [debug]: Started rendering model MARTS.fct_transactions
+10:20:48.750444 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.476588093s
+10:20:48.750578 [debug]: concat_batches + normalize_result_column_names took 73.445µs
+10:20:48.750618 [debug]: record_current_span_status_from_attrs took 8.425µs
+10:20:48.750650 [debug]: Query executed on node model.fintrack_analytics.dim_categories:
+create or replace transient  table FINTRACK_DB.MARTS.dim_categories
+    
+    
+    
+    
+    as (select * from FINTRACK_DB.STAGING.stg_categories
+    )
+
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.dim_categories", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:48.750752 [debug]: drop(query_span_guard) (span exit/export) took 110.637µs
+10:20:48.757111 [info ]: Finished running [  1.64s] model MARTS.dim_categories [success]
+10:20:48.757276 [info ]:  Succeeded [  1.64s] model MARTS.dim_categories (table)
+10:20:48.764736 [debug]: Compiled SQL for node model.fintrack_analytics.fct_transactions at target/compiled/fintrack_analytics/models/marts/fct_transactions.sql
+10:20:48.765105 [debug]: Finished rendering [  0.02s] model MARTS.fct_transactions [success]
+10:20:48.765276 [debug]: Started analyzing model MARTS.fct_transactions
+10:20:48.810120 [debug]: Finished analyzing [  0.04s] model MARTS.fct_transactions [success]
+10:20:48.810677 [info ]: Started running model MARTS.fct_transactions
+10:20:48.822799 [debug]: Writing runtime sql for node "model.fintrack_analytics.fct_transactions"
+10:20:48.825926 [debug]: create_debug_span(...).entered() took 39.079µs
+10:20:50.318377 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.492255294s
+10:20:50.318461 [debug]: reader.schema() took 1.181µs
+10:20:50.329219 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.503201261s
+10:20:50.329440 [debug]: concat_batches + normalize_result_column_names took 136.753µs
+10:20:50.329486 [debug]: record_current_span_status_from_attrs took 10.806µs
+10:20:50.329560 [debug]: Query executed on node model.fintrack_analytics.fct_transactions:
+create or replace transient  table FINTRACK_DB.MARTS.fct_transactions
+    
+    
+    
+    
+    as (with __dbt__cte__int_transactions_enrichies as (
+with
+
+transactions as (
+    select * from FINTRACK_DB.STAGING.stg_transactions
+),
+
+comptes as (
+    select 
+        compte_id,
+        nom_client,
+        type_compte
+    from FINTRACK_DB.STAGING.stg_comptes
+),
+
+categories as (
+    select 
+        categorie_id,
+        nom_categorie,
+        type_categorie,
+        groupe_categorie
+    from FINTRACK_DB.STAGING.stg_categories
+)
+
+
+select
+    t.transaction_id as transaction_id,
+    t.compte_id as compte_id,
+    c.nom_client as nom_client,
+    c.type_compte as type_compte,
+    t.date_transaction as date_transaction,
+    DATE_TRUNC('month', t.date_transaction) as mois_transaction,
+    t.montant as montant,
+    t.type_operation as type_operation,
+    t.categorie_id as categorie_id,
+    cat.nom_categorie as nom_categorie,
+    cat.type_categorie as type_categorie,
+    cat.groupe_categorie as groupe_categorie,
+    t.statut as statut,
+    t.description as description
+from transactions t
+left join comptes c on t.compte_id = c.compte_id
+left join categories cat on t.categorie_id = cat.categorie_id   
+)
+--EPHEMERAL-SELECT-WRAPPER-START
+select * from (
+select
+    transaction_id,
+    compte_id,
+    categorie_id,
+    date_transaction,
+    mois_transaction,
+    montant,
+    type_operation,
+    (CASE WHEN type_operation = 'credit' THEN montant ELSE -montant END) as montant_signe,
+    nom_client,
+    nom_categorie,
+    groupe_categorie,
+    statut
+from __dbt__cte__int_transactions_enrichies
+where statut = 'validee'
+--EPHEMERAL-SELECT-WRAPPER-END
+)
+    )
+
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.fct_transactions", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:50.329699 [debug]: drop(query_span_guard) (span exit/export) took 185.755µs
+10:20:50.338271 [info ]: Finished running [  1.53s] model MARTS.fct_transactions [success]
+10:20:50.338625 [info ]:  Succeeded [  1.59s] model MARTS.fct_transactions (table)
+10:20:50.338948 [info ]: Started model MARTS.mart_budget_vs_reel
+10:20:50.339034 [debug]: Started rendering model MARTS.mart_budget_vs_reel
+10:20:50.339166 [info ]: Started model MARTS.mart_solde_mensuel
+10:20:50.339222 [debug]: Started rendering model MARTS.mart_solde_mensuel
+10:20:50.341847 [debug]: Compiled SQL for node model.fintrack_analytics.mart_budget_vs_reel at target/compiled/fintrack_analytics/models/marts/mart_budget_vs_reel.sql
+10:20:50.341942 [debug]: Compiled SQL for node model.fintrack_analytics.mart_solde_mensuel at target/compiled/fintrack_analytics/models/marts/mart_solde_mensuel.sql
+10:20:50.342257 [debug]: Finished rendering [  0.00s] model MARTS.mart_budget_vs_reel [success]
+10:20:50.342423 [debug]: Started analyzing model MARTS.mart_budget_vs_reel
+10:20:50.345672 [debug]: Finished rendering [  0.01s] model MARTS.mart_solde_mensuel [success]
+10:20:50.345821 [info ]: Finished rendering [  4.36s] (10 nodes, 0 skipped, 0 errors)
+10:20:50.346107 [debug]: Started analyzing model MARTS.mart_solde_mensuel
+10:20:50.408749 [debug]: Finished analyzing [  0.06s] model MARTS.mart_solde_mensuel [success]
+10:20:50.408973 [info ]: Started running model MARTS.mart_solde_mensuel
+10:20:50.424356 [debug]: Writing runtime sql for node "model.fintrack_analytics.mart_solde_mensuel"
+10:20:50.429082 [debug]: create_debug_span(...).entered() took 53.644µs
+10:20:50.436549 [debug]: Finished analyzing [  0.09s] model MARTS.mart_budget_vs_reel [success]
+10:20:50.436850 [info ]: Finished analyzing [  4.44s] (10 nodes, 0 skipped, 0 errors)
+10:20:50.437109 [info ]: Started running model MARTS.mart_budget_vs_reel
+10:20:50.452613 [debug]: Writing runtime sql for node "model.fintrack_analytics.mart_budget_vs_reel"
+10:20:50.457680 [debug]: create_debug_span(...).entered() took 163.967µs
+10:20:51.343841 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 914.539766ms
+10:20:51.343930 [debug]: reader.schema() took 1.13µs
+10:20:51.354897 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 925.706036ms
+10:20:51.355083 [debug]: concat_batches + normalize_result_column_names took 102.578µs
+10:20:51.355142 [debug]: record_current_span_status_from_attrs took 11.015µs
+10:20:51.355182 [debug]: Query executed on node model.fintrack_analytics.mart_solde_mensuel:
+create or replace transient  table FINTRACK_DB.MARTS.mart_solde_mensuel
+    
+    
+    
+    
+    as (with transactions_mensuelles as (
+    select
+        compte_id,
+        mois_transaction AS mois,
+        -- Total des crédits du mois
+        SUM(CASE WHEN type_operation = 'credit' THEN montant ELSE 0 END) AS total_credits,
+        -- Total des débits du mois
+        SUM(CASE WHEN type_operation = 'debit' THEN montant ELSE 0 END) AS total_debits,
+        -- Solde net du mois (crédits - débits)
+        SUM(montant_signe) AS solde_net_mois
+    from FINTRACK_DB.MARTS.fct_transactions
+    group by 
+        compte_id,
+        mois_transaction
+),
+
+comptes as (
+    select
+        compte_id,
+        solde_initial
+    from FINTRACK_DB.MARTS.dim_comptes
+)
+
+select
+    t.compte_id,
+    t.mois,
+    t.total_credits,
+    t.total_debits,
+    t.solde_net_mois,
+    -- Solde cumulé = solde_initial + somme cumulée des montant_signe
+    c.solde_initial + SUM(t.solde_net_mois) OVER (
+        PARTITION BY t.compte_id 
+        ORDER BY t.mois
+    ) AS solde_cumule
+from transactions_mensuelles t
+join comptes c ON t.compte_id = c.compte_id
+order by 
+    t.compte_id,
+    t.mois
+    )
+
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.mart_solde_mensuel", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:51.355274 [debug]: drop(query_span_guard) (span exit/export) took 105.769µs
+10:20:51.361453 [info ]: Finished running [  0.95s] model MARTS.mart_solde_mensuel [success]
+10:20:51.361703 [info ]:  Succeeded [  1.02s] model MARTS.mart_solde_mensuel (table)
+10:20:51.809555 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.351623798s
+10:20:51.809627 [debug]: reader.schema() took 1.25µs
+10:20:51.817742 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.359959495s
+10:20:51.817958 [debug]: concat_batches + normalize_result_column_names took 137.369µs
+10:20:51.818005 [debug]: record_current_span_status_from_attrs took 10.156µs
+10:20:51.818049 [debug]: Query executed on node model.fintrack_analytics.mart_budget_vs_reel:
+create or replace transient  table FINTRACK_DB.MARTS.mart_budget_vs_reel
+    
+    
+    
+    
+    as (with comptes_budgets_lisses as (
+    select 
+        b.compte_id as compte_id,
+        c.nom_client as nom_client,
+        b.categorie_id as categorie_id,
+        b.mois as mois,
+        SUM(b.montant_prevu) as montant_prevu
+    from FINTRACK_DB.STAGING.stg_budgets b
+    join FINTRACK_DB.STAGING.stg_comptes c on c.compte_id = b.compte_id
+    group by b.compte_id, b.mois, b.categorie_id, c.nom_client
+),
+debit_mois as (
+    select 
+        t.compte_id as compte_id,
+        t.mois_transaction as mois_transaction,
+        SUM(t.montant) as montant_reel,
+        c.categorie_id as categorie_id,
+        c.nom_categorie as nom_categorie
+    from FINTRACK_DB.MARTS.fct_transactions t
+    join FINTRACK_DB.STAGING.stg_categories c on t.categorie_id = c.categorie_id 
+    where t.type_operation = 'debit'
+    group by mois_transaction, t.compte_id, c.categorie_id, c.nom_categorie
+)
+
+---------------
+select 
+    cb.compte_id,
+    cb.categorie_id,
+    dm.nom_categorie,
+    cb.mois,
+    sum(dm.montant_reel) as montant_reel,
+    avg(cb.montant_prevu) as montant_prevu,
+    avg(cb.montant_prevu) - sum(dm.montant_reel) as ecart,
+    sum(dm.montant_reel) > avg(cb.montant_prevu) as depassement
+from debit_mois dm
+full outer join comptes_budgets_lisses cb on cb.compte_id = dm.compte_id and cb.mois = dm.mois_transaction and cb.categorie_id = dm.categorie_id
+group by cb.mois, cb.compte_id, cb.categorie_id, dm.nom_categorie, dm.mois_transaction
+order by
+    cb.compte_id,
+    cb.mois,
+    cb.categorie_id
+    )
+
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.fintrack_analytics.mart_budget_vs_reel", "profile_name": "fintrack_analytics", "target_name": "prod"} */
+10:20:51.818144 [debug]: drop(query_span_guard) (span exit/export) took 111.838µs
+10:20:51.826406 [info ]: Finished running [  1.39s] model MARTS.mart_budget_vs_reel [success]
+10:20:51.826602 [info ]: Finished running [  5.73s] (10 nodes, 1 skipped, 0 errors)
+10:20:51.826825 [info ]:  Succeeded [  1.49s] model MARTS.mart_budget_vs_reel (table)
+10:20:52.216686 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' successfully for target 'prod' [10.6s]
+Processed: 10 models
+Summary: 10 total | 9 success | 1 no-op
