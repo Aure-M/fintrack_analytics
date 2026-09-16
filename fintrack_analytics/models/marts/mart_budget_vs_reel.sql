@@ -3,7 +3,8 @@ with comptes_budgets_lisses as (
         b.compte_id as compte_id,
         c.nom_client as nom_client,
         b.categorie_id as categorie_id,
-        b.mois as mois,
+        --b.mois as mois,
+        {{ generer_periode('b.mois') }} as mois,
         SUM(b.montant_prevu) as montant_prevu
     from {{ref('stg_budgets')}} b
     join {{ref('stg_comptes')}} c on c.compte_id = b.compte_id

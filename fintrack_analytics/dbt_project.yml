@@ -36,6 +36,17 @@ models:
       +schema: STAGING
     intermediate:
       +materialized: ephemeral
+      +tags: ['daily', 'critical']
     marts:
       +materialized: table
       +schema: MARTS
+      +tags: ['mart', 'critical']
+      fct_transactions:
+        +tags: ['daily']
+      mart_budget_vs_reel:
+        +tags: ['weekly']
+      mart_solde_mensuel:
+        +tags: ['weekly']
+
+on-run-end:
+  - "{{ log_dbt_run(results) }}"

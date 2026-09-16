@@ -70,3 +70,57 @@ models:
               arguments:
                 to: ref('stg_comptes')
                 field: compte_id
+  - name: stg_alertes
+    description: "Modèle de staging pour la table Alertes"
+    columns:
+      - name: alerte_id
+        description: "Identifiant de l'alerte"
+        data_tests:
+          - not_null
+          - unique
+      - name: compte_id
+        description: "Identifiant du compte"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_comptes')
+                field: compte_id
+      - name: categorie_id
+        description: "Identifiant de la catégorie"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_categories')
+                field: categorie_id
+  - name: stg_virements
+    description: "Modèle de staging pour la table Virements"
+    columns:
+      - name: virement_id
+        description: "Identifiant du virement"
+        data_tests:
+          - not_null
+          - unique
+      - name: compte_source_id
+        description: "Identifiant du compte source"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_comptes')
+                field: compte_id
+      - name: compte_dest_id
+        description: "Identifiant du compte destination"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_comptes')
+                field: compte_id
+      - name: motif
+        description: "Motif du virement"
+        data_tests:
+          - test_taux_null:
+              arguments:
+                seuil_pct: 10

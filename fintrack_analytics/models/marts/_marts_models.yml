@@ -1,0 +1,76 @@
+models:
+  - name: fct_transactions
+    description: "Table de faits pour les transactions. Ce sont uniquement les transactions validées."
+    columns:
+      - name: transaction_id
+        description: "Identifiant de la transaction"
+        data_tests:
+          - not_null
+          - unique
+      - name: montant_signe
+        description: "Montant de la transaction avec le signe approprié (positif pour les revenus, négatif pour les dépenses)"
+      - name: montant
+        description: "Montant de la transaction sans signe"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+      - name: date_transaction
+        description: "Date de la transaction"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                max_value: "current_date"
+  - name: fct_virements
+    description: "Table de faits pour les virements. Ce sont uniquement les virements validés."
+    data_tests:
+      - dbt_expectations.expect_compound_columns_to_be_unique:  
+          arguments:
+            column_list: ["virement_id", "compte_id"]
+            ignore_row_if: "any_value_is_missing"
+    columns:
+      - name: unique_virement_id
+        description: "Identifiant du virement"
+        data_tests:
+          - not_null
+          - unique
+      - name: montant
+        description: "Montant du virement sans signe"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+  - name: mart_solde_mensuel
+    description: "Table de faits pour le solde mensuel des comptes. Transactions aggrégées par compte et par mois"
+    data_tests:
+      - test_solde_compte_epargne
+
+    columns:
+      - name: total_credits
+        description: "Total des crédits pour le mois"
+      - name: total_debits
+        description: "Total des débits pour le mois"
+      - name: solde_net_mois
+        description: "Solde net des transactions pour le mois"
+      - name: solde_cumule
+        description: "Solde cumulé des transactions depuis la création du compte"
+  - name: mart_budget_vs_reel
+    description: "Table de faits pour la comparaison entre le budget et les dépenses réelles. Agrégée par compte, catégorie et mois"
+    data_tests:
+      - dbt_expectations.expect_row_conditions_to_be_true:
+          arguments:
+            row_condition: |
+              (ecart > 0 AND depassement = TRUE)
+              OR (ecart < 0 AND depassement = FALSE)
+    columns:
+      - name: montant_reel
+        description: "Total des transactions (débits) pour le mois"
+      - name: montant_prevu
+        description: "Montant prévu pour le budget du mois"
+      - name: ecart
+        description: "Écart signé entre le budget et les dépenses réelles pour le mois"
+      - name: depassement
+        description: "Indicateur si le budget a été dépassé (True) ou non (False) pour le mois"

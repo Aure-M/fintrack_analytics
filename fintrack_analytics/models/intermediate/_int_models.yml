@@ -1,0 +1,4 @@
+models:
+  - name: int_transactions_enrichies
+    description: "Jointure des transactions avec les comptes et les catégories pour enrichir les données."
+    columns:

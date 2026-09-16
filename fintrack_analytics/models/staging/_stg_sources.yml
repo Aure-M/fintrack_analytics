@@ -1,6 +1,7 @@
 sources:
   - name: raw
     database: fintrack_db
+    schema: raw
     description: "Sources brutes de données pour le projet FinTrack"
     tables:
       - name: raw_comptes
@@ -50,6 +51,7 @@ sources:
             description: "Description de la transaction"
           - name: statut
             description: "Statut de la transaction"
+
       - name: raw_budgets
         description: "Table Budgets"
         columns:
@@ -63,3 +65,16 @@ sources:
             description: "Mois du budget"
           - name: montant_prevu
             description: "Montant prévu pour le budget" 
+      - name: raw_virements
+        description: "Virements entre comptes internes FinTrack"
+      - name: raw_alertes
+        description: "Alertes de dépassement de budget"
+  
+  - name: snapshots
+    database: fintrack_db
+    schema: snapshots
+    description: "Snapshots pour le projet FinTrack"
+    tables:
+      - name: snap_comptes
+        description: "Snapshot des comptes"
+  

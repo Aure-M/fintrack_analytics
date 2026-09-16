@@ -28,8 +28,10 @@ select
     c.nom_client as nom_client,
     c.type_compte as type_compte,
     t.date_transaction as date_transaction,
-    DATE_TRUNC('month', t.date_transaction) as mois_transaction,
+    -- DATE_TRUNC('month', t.date_transaction) as mois_transaction,
+    {{ generer_periode('t.date_transaction') }} as mois_transaction,
     t.montant as montant,
+    (CASE WHEN t.type_operation = 'debit' THEN -t.montant ELSE t.montant END) as montant_signe,
     t.type_operation as type_operation,
     t.categorie_id as categorie_id,
     cat.nom_categorie as nom_categorie,
@@ -39,4 +41,4 @@ select
     t.description as description
 from transactions t
 left join comptes c on t.compte_id = c.compte_id
-left join categories cat on t.categorie_id = cat.categorie_id   
+left join categories cat on t.categorie_id = cat.categorie_id

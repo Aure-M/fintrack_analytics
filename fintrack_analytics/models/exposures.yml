@@ -1,0 +1,27 @@
+version: 2
+
+exposures:
+  - name: suivi_budgetaire_client
+    label: "Suivi budgétaire client"
+    type: dashboard
+    maturity: medium
+    description: "Dashboard Metabase pour le suivi des budgets et dépenses par compte client."
+    owner:
+      name: "Équipe Data"
+      email: "analytics@fintrack.com"
+    depends_on:
+      - ref('mart_budget_vs_reel')
+      - ref('dim_comptes')
+
+  - name: synthese_mensuelle
+    label: "Synthèse mensuelle"
+    type: analysis
+    maturity: medium
+    description: "Rapport automatisé générant la synthèse des soldes et transactions mensuelles."
+    owner:
+      name: "Équipe Data"
+      email: "analytics@fintrack.com"
+    depends_on:
+      - ref('mart_solde_mensuel')
+      - ref('fct_transactions')
+      - ref('dim_categories')
