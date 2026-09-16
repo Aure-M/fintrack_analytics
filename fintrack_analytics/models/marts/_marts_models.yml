@@ -60,11 +60,11 @@ models:
   - name: mart_budget_vs_reel
     description: "Table de faits pour la comparaison entre le budget et les dépenses réelles. Agrégée par compte, catégorie et mois"
     data_tests:
-      - dbt_expectations.expect_row_conditions_to_be_true:
+      - dbt_expectations.expression_is_true:
           arguments:
-            row_condition: |
-              (ecart > 0 AND depassement = TRUE)
-              OR (ecart < 0 AND depassement = FALSE)
+            expression: |
+              (ecart < 0 AND depassement = TRUE)
+              OR (ecart >= 0 AND depassement = FALSE)
     columns:
       - name: montant_reel
         description: "Total des transactions (débits) pour le mois"
